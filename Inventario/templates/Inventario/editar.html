@@ -1,0 +1,110 @@
+{% extends 'SistemaInventarioApp/plantilla_main.html' %}
+
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'Inventario/css/editar.css' %}">
+{% endblock %}
+
+{% block title %}
+Inventario | Sistema Inventario
+{% endblock %}
+
+{% block content %}
+
+<div class="div_editar">
+    <div class="subdiv_editar1">
+        <h2>Editar Productos</h2>
+
+        <a href="{% url 'inventario' %}" class="btn btn-outline-danger a_editar">Volver</a>
+    </div>
+
+    <hr>
+
+    <form action="" method="POST" enctype="multipart/form-data" class="subdiv_editar2">
+
+        {% csrf_token %}
+
+        <div>
+            <div class="subdiv_form">
+                <label for="nombre_producto">Nombre:</label>
+                <br>
+                <input type="text" name="nombre_producto" id="nombre_producto" value="{{producto.nombre}}">
+                <br>
+            </div>
+
+            <div class="subdiv_form">
+                <label for="codigo_producto">Codigo:</label>
+                <br>
+                <input type="text" name="codigo_producto" id="codigo_producto" value="{{producto.codigo_producto}}">
+                <br>
+            </div>
+
+            <div class="subdiv_form">
+                <label for="categoria_producto">Categoria:</label>
+                <br>
+                <select name="categoria_producto" id="categoria_producto">
+                    {% for categoria in categorias %}
+                    <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+            </div>
+
+            <div class="subdiv_form">
+                <label for="proveedor_producto">Proveedor:</label>
+                <br>
+                <select name="proveedor_producto" id="proveedor_producto">
+                    {% for proveedor in proveedores %}
+                    <option value="{{proveedor.id}}">{{proveedor.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="subdiv_form">
+                <label for="stock_producto">Stock:</label>
+                <br>
+                <input type="number" name="stock_producto" id="stock_producto" placeholder="Stock" value="{{producto.stock}}">
+                <br>
+            </div>
+
+            <div class="subdiv_form">
+                <label for="precio_producto">Precio:</label>
+                <br>
+                <input type="number" name="precio_producto" id="precio_producto" placeholder="Precio" value="{{producto.precio}}">
+                <br>
+            </div>
+
+            <div class="subdiv_form">
+                <label for="descripcion_producto">Descripcion:</label>
+                <br>
+                <textarea name="descripcion_producto" id="descripcion_producto" cols="30" rows="5">{{producto.descripcion}}</textarea>
+                <br>
+            </div>
+
+            <div class="subdiv_form">
+                <label for="imagen_producto">Imagen:</label>
+                <br>
+                <input type="file" accept="image/*" name="imagen_producto" id="imagen_producto" placeholder="Imagen">
+                <br>
+            </div>
+
+        </div>
+
+        <div class="subdiv_form">
+            <img src="{{producto.imagen.url}}" alt="">
+        </div>
+
+        <input type="submit" class="btn btn-outline-primary input_form" value="Guardar">
+
+
+
+    </form>
+
+
+</div>
+
+{% endblock %}

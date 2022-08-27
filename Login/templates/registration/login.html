@@ -1,0 +1,35 @@
+{% extends 'SistemaInventarioApp/plantilla_login.html' %}
+
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'Login/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="div_login">
+    <div class="login_2"></div>
+    <form action="{% url 'login' %}" method="POST">
+
+        {% csrf_token %}
+        <br>
+
+        <h1>Bienvenido</h1>
+        <hr>
+
+        <input type="text" placeholder="Usuario" name="username" id="id_username">
+        <br>
+        <input type="password" placeholder="Contraseña" name="password" id="id_password">
+        <br>
+        <input type="submit" class="btn_submit" value="Iniciar Sesion">
+        <input type="hidden" name="next" value="{{ next }}">
+        <hr>
+        <h3>Sistema de Inventario</h3>
+        Creado por: Christopher Fernandez Barboza
+
+    </form>
+</div>
+</div>
+
+{% endblock %}

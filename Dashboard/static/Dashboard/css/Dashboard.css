@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.div_pagMain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.divs_pagMain {
+  margin: 10px;
+  padding: 10px;
+  font-size: 30px;
+  background: #2666cf;
+  color: #ffffff;
+  min-width: 300px;
+  text-align: center;
+  border-radius: 5px;
+}
+.divs_pagMain p {
+  font-size: 20px;
+}
+.divs_pagMain a {
+  width: 200px;
+  font-size: 20px;
+}

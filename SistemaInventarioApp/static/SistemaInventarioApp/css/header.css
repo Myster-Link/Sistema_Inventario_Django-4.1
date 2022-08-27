@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#header {
+  background: #1a374d;
+  color: #fff;
+}
+.navMain {
+    background: #1a374d;
+}
+.nav_interior_top {
+    background: #406882;
+    color: #fff;
+}
+.nav_interior_bottom {
+    background: #406882;
+    color: #fff;
+    border-top: 1px #54bab9 solid;
+}
+.nav_footer {
+    margin: 5px ;
+}

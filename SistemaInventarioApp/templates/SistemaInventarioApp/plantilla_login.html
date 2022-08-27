@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'SistemaInventarioApp/vendor/bootstrap-5.2.0-dist/css/bootstrap.min.css' %}">
+
+    <!-- Mis estilos -->
+    {% block estilos %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+        Iniciar Sesion | Sistema Inventario
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+
+    <!-- bootstap -->
+    <script src="{% static 'SistemaInventarioApp/vendor/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

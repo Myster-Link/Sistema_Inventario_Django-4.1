@@ -1,0 +1,62 @@
+{% extends 'SistemaInventarioApp/plantilla_login.html' %}
+
+{% load static %}
+
+{% block title %}
+Sistema Inventario | Registrarse
+{% endblock %}
+
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div style="width: 400px; margin:auto; padding: 30px;">
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        <div>
+            <label for="id_usuario">Usuario:</label>
+            <br>
+            <input type="text" name="username" id="id_usuario">
+        </div>
+
+        <div>
+            <label for="id_email">Email:</label>
+            <br>
+            <input type="text" name="email" id="id_email">
+        </div>
+
+        <div>
+            <label for="id_first_name">Nombre:</label>
+            <br>
+            <input type="text" name="first_name" id="id_first_name">
+        </div>
+
+        <div>
+            <label for="id_last_name">Apellido:</label>
+            <br>
+            <input type="text" name="last_name" id="id_last_name">
+        </div>
+
+        <div>
+            <label for="id_password">Contraseña:</label>
+            <br>
+            <input type="text" name="password" id="id_password">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Register" style="margin:10px;">
+
+    </form>
+</div>
+
+{% else %}
+
+<h2 style="text-align:center;">No esta autenticado</h2>
+
+{% endif %}
+
+{% endblock %}
+

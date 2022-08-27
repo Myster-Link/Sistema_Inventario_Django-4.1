@@ -1,0 +1,41 @@
+.div_editar {
+  background-color: #fff;
+}
+.subdiv_editar1 {
+  margin: 20px;
+  padding: 10px;
+  width: auto;
+}
+.subdiv_editar1 h2 {
+  background-color: #2666cf;
+  color: #fff;
+  padding: 10px;
+  font-size: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+.a_editar {
+  font-size: 20px;
+  width: 250px;
+}
+.subdiv_editar2 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+.input_form{
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  height: 50px;
+}
+.subdiv_form{
+    margin: 20px;
+}
+.subdiv_form img{
+    width: 300px;
+}
+.subdiv_form input, select{ 
+    padding: 5px;
+}

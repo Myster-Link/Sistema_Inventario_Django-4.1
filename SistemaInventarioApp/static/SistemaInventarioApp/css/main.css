@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgb(235, 228, 228);
+}
+main {
+  margin: 10px;
+}

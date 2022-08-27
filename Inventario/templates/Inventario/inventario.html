@@ -1,0 +1,120 @@
+{% extends 'SistemaInventarioApp/plantilla_main.html' %}
+
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'Inventario/css/inventario.css' %}">
+{% endblock %}
+
+{% block title %}
+Inventario | Sistema Inventario
+{% endblock %}
+
+{% block content %}
+
+<div class="div_head">
+    <button type="button" class="btn btn-outline-dark btn_title" disabled>Listado de Productos</button>
+    <br>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddProductosModal">
+        <i class="fa-solid fa-plus"></i> Productos
+    </button>
+    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#AddCategoriasModal">
+        <i class="fa-solid fa-plus"></i> Categoria
+    </button>
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AddProveedoresModal">
+        <i class="fa-solid fa-plus"></i> Proveedor
+    </button>
+</div>
+
+{% include 'Inventario/modal_add_productos.html' %}
+{% include 'Inventario/modal_add_categorias.html' %}
+{% include 'Inventario/modal_add_proveedores.html' %}
+
+
+<div class="card div_table">
+    <div class="card-body">
+        <table id="sasa" class="table table-striped dt-responsive nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id:</th>
+                    <th>Codigo:</th>
+                    <th>Nombre:</th>
+                    <th>Categoria:</th>
+                    <th>Proveedor:</th>
+                    <th>Stock:</th>
+                    <th>Precio:</th>
+                    <th>Descripcion:</th>
+                    <th>Acciones:</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for producto in productos %}
+                <tr>
+                    <td>
+                        {{producto.id}}
+                    </td>
+                    <td>
+                        {{producto.codigo_producto}}
+                    </td>
+                    <td>
+                        {{producto.nombre}}
+                    </td>
+                    <td>
+                        {{producto.categoria}}
+                    </td>
+                    <td>
+                        {{producto.proveedor}}
+                    </td>
+                    <td>
+                        {{producto.stock}}
+                    </td>
+                    <td>
+                        ₡ {{producto.precio}}
+                    </td>
+                    <td>
+                        {{producto.descripcion}}
+                    </td>
+                    <td>
+                        <a href="inventario/{{producto.id}}" class="btn btn-primary"><i
+                                class="fa-solid fa-newspaper"></i></a>
+                        <a href="{% url 'editar' producto.id %}" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{% url 'eliminar' producto.id %}" class="btn btn-danger"><i
+                                class="fa-solid fa-trash-can"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+
+<script>
+    $('#sasa').DataTable({
+        reponsive: true,
+        autoWidth: false,
+
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "Nada encontrado - Disculpa",
+            "info": "Mostrando la página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+            'search': 'Buscar:',
+            'paginate': {
+                'next': 'Siguiente',
+                'previous': 'Anterior'
+            }
+        }
+    });
+
+
+
+</script>
+{% endblock %}
